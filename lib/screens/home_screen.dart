@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/functions/get_news_data.dart';
+import 'package:flutter_application_2/functions/internet_connection.dart';
 import 'package:flutter_application_2/utils/custom_text.dart';
 import 'package:flutter_application_2/widgets/news_card.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,11 +12,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    getNewsData();
+    InternetConnection().getConnectivity();
   }
 
   @override
