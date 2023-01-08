@@ -44,11 +44,21 @@ class _HomeScreenState extends State<HomeScreen> {
                     String dateAndTime = snapshot.data![index]['publishedAt'];
                     var date = dateAndTime.split("T");
                     return NewsCard(
-                      backGroundImageUrl: snapshot.data![index]['urlToImage'],
-                      title: snapshot.data![index]['title'],
-                      publishedAt: date[0],
-                      author: snapshot.data![index]['author'],
-                      description: snapshot.data![index]['description'],
+                      backGroundImageUrl: snapshot.data![index]['urlToImage'] !=
+                              null
+                          ? snapshot.data![index]['urlToImage']
+                          : "https://media.istockphoto.com/id/1193046540/vector/photo-coming-soon-image-icon-vector-illustration-isolated-on-white-background-no-website.jpg?s=612x612&w=0&k=20&c=4wx1UzigP0g9vJv9D_DmOxdAT_DtX5peZdoS4hi2Fqg=",
+                      title: snapshot.data![index]['title'] != null
+                          ? snapshot.data![index]['title']
+                          : "Title Not Available",
+                      publishedAt:
+                          date[0] != null ? date[0] : "Date Not Available",
+                      author: snapshot.data![index]['author'] != null
+                          ? snapshot.data![index]['author']
+                          : "Author Data Not Available",
+                      description: snapshot.data![index]['description'] != null
+                          ? snapshot.data![index]['description']
+                          : "Artical Data Not Available",
                     );
                   },
                 );

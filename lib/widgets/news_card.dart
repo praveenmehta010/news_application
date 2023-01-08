@@ -4,6 +4,7 @@ import 'package:flutter_application_2/utils/custom_text.dart';
 
 class NewsCard extends StatelessWidget {
   final String backGroundImageUrl, title, author, publishedAt, description;
+
   const NewsCard({
     super.key,
     required this.backGroundImageUrl,
@@ -37,9 +38,12 @@ class NewsCard extends StatelessWidget {
         },
         child: Container(
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              image: DecorationImage(
-                  image: NetworkImage(backGroundImageUrl), fit: BoxFit.cover)),
+            borderRadius: BorderRadius.circular(5),
+            image: DecorationImage(
+              image: NetworkImage(backGroundImageUrl),
+              fit: BoxFit.cover,
+            ),
+          ),
           width: w,
           height: h,
           child: Container(
