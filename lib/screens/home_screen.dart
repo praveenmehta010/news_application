@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/functions/get_news_data.dart';
+import 'package:flutter_application_2/utils/custom_text.dart';
+import 'package:flutter_application_2/widgets/news_card.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,18 +21,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var w = MediaQuery.of(context).size.width;
+    
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xff000000),
-        title: Text(
-          "HEADLINES",
-          style: GoogleFonts.roboto(
-              fontSize: 29,
-              fontWeight: FontWeight.bold,
-              color: Color(0xffffffff),
-              letterSpacing: 3.5),
-        ),
+        title: 
+        CustomText(text: "HEADLINES", size: 29, fontColor: Color(0xffffffff), weight: FontWeight.bold),
+        
         centerTitle: true,
       ),
       body: Padding(
@@ -42,16 +39,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 return ListView.builder(
                   itemCount: snapshot.data!.length,
                   itemBuilder: (context, index) {
-                    return Card(
-                      margin: EdgeInsets.only(left: 16, right: 16, bottom: 24),
-                      shadowColor: Colors.black,
-                      elevation: 10,
-                      color: Colors.blue,
-                      child: Container(
-                        width: w,
-                        height: 400,
-                      ),
-                    );
+                    String dateAndTime = snapshot.data![index]['publishedAt'];
+                    var date = dateAndTime.split("T");
+                    return NewsCard(
+                      backGroundImageUrl: snapshot.data![index]['urlToImage'],
+                      title: snapshot.data![index]['title'],
+                      publishedAt: date[0],
+                      author: snapshot.data![index]['author'],
+                      );
                   },
                 );
               } else {
