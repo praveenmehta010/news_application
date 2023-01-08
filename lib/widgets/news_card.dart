@@ -3,7 +3,7 @@ import 'package:flutter_application_2/screens/detail_screen.dart';
 import 'package:flutter_application_2/utils/custom_text.dart';
 
 class NewsCard extends StatelessWidget {
-  final String backGroundImageUrl, title, author, publishedAt,description;
+  final String backGroundImageUrl, title, author, publishedAt, description;
   const NewsCard({
     super.key,
     required this.backGroundImageUrl,
@@ -24,31 +24,78 @@ class NewsCard extends StatelessWidget {
       elevation: 10,
       child: InkWell(
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => DetailNewsScreen(author: author,backGroundImageUrl: backGroundImageUrl,description: description,publishedAt: publishedAt,title: title),));
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => DetailNewsScreen(
+                    author: author,
+                    backGroundImageUrl: backGroundImageUrl,
+                    description: description,
+                    publishedAt: publishedAt,
+                    title: title),
+              ));
         },
         child: Container(
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
-              // color: Colors.blue
               image: DecorationImage(
                   image: NetworkImage(backGroundImageUrl), fit: BoxFit.cover)),
           width: w,
           height: h,
-          child: Column(
-            children: [
-              CustomText(text: title, size: 20, fontColor: Color(0xfff2f2f2), weight: FontWeight.normal),
-              
-              SizedBox(
-                height: 100,
-              ),
-              Row(
+          child: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+              begin: Alignment.center,
+              end: Alignment.bottomCenter,
+              colors: [
+                Colors.black12,
+                Colors.black87.withOpacity(0.7),
+                Colors.black87.withOpacity(1)
+              ],
+            )),
+            child: Padding(
+              padding: const EdgeInsets.only(
+                  left: 16, right: 16, bottom: 12, top: 12),
+              child: Column(
                 children: [
-                  CustomText(text: author, size: 12, fontColor: Color(0xfff2f2f2), weight: FontWeight.normal),
-                  SizedBox(width: 20,),
-                  CustomText(text: publishedAt, size: 12, fontColor: Color(0xfff2f2f2), weight: FontWeight.normal)
+                  Expanded(
+                    child: Container(),
+                  ),
+                  Container(
+                    child: Column(
+                      children: [
+                        CustomText(
+                            text: title,
+                            size: 20,
+                            fontColor: Color(0xfff2f2f2),
+                            weight: FontWeight.normal),
+                        SizedBox(
+                          height: 24,
+                        ),
+                        Row(
+                          children: [
+                            CustomText(
+                                text: author,
+                                size: 12,
+                                fontColor: Color(0xfffbababa),
+                                weight: FontWeight.bold),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            CustomText(
+                              text: publishedAt,
+                              size: 12,
+                              fontColor: Color(0xfffbababa),
+                              weight: FontWeight.bold,
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
-              )
-            ],
+              ),
+            ),
           ),
         ),
       ),

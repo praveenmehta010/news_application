@@ -21,14 +21,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       backgroundColor: Color(0xff464646),
       appBar: AppBar(
         backgroundColor: Color(0xff000000),
-        title: 
-        CustomText(text: "HEADLINES", size: 29, fontColor: Color(0xffffffff), weight: FontWeight.bold),
-        
+        title: CustomText(
+            text: "HEADLINES",
+            size: 29,
+            fontColor: Color(0xffffffff),
+            weight: FontWeight.bold),
         centerTitle: true,
       ),
       body: Padding(
@@ -46,10 +47,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       backGroundImageUrl: snapshot.data![index]['urlToImage'],
                       title: snapshot.data![index]['title'],
                       publishedAt: date[0],
-                      author: "Author",
-                      // author: snapshot.data![index]['author'],
+                      author: snapshot.data![index]['author'],
                       description: snapshot.data![index]['description'],
-                      );
+                    );
                   },
                 );
               } else {
