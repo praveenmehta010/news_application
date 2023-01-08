@@ -23,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     
     return Scaffold(
+      backgroundColor: Color(0xff464646),
       appBar: AppBar(
         backgroundColor: Color(0xff000000),
         title: 
@@ -45,7 +46,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       backGroundImageUrl: snapshot.data![index]['urlToImage'],
                       title: snapshot.data![index]['title'],
                       publishedAt: date[0],
-                      author: snapshot.data![index]['author'],
+                      author: "Author",
+                      // author: snapshot.data![index]['author'],
+                      description: snapshot.data![index]['description'],
                       );
                   },
                 );
