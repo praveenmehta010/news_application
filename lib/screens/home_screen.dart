@@ -1,24 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/functions/get_news_data.dart';
-import 'package:flutter_application_2/functions/internet_connection.dart';
 import 'package:flutter_application_2/utils/custom_text.dart';
 import 'package:flutter_application_2/widgets/news_card.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class HomeScreenOnline extends StatefulWidget {
+  const HomeScreenOnline({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomeScreenOnline> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    InternetConnection().getConnectivity();
-  }
+class _HomeScreenState extends State<HomeScreenOnline> {
 
   @override
   Widget build(BuildContext context) {

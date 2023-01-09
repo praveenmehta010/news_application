@@ -15,8 +15,8 @@ class MyApp extends StatelessWidget {
     return OverlaySupport(
       child: MaterialApp(
         title: 'Flutter Demo',
-        // home: InternetConnection()
-        home: HomeScreen(),
+        home: InternetConnection()
+        // home: HomeScreen(),
       ),
     );
   }
